@@ -12,6 +12,7 @@ function clear() {
 	terminal.set("")
 }
 
+
 export function commandTyped() {
 	command = get(textinput)
 	textinput.set("")
@@ -52,7 +53,7 @@ export function commandTyped() {
 	}	
 
 	print("<br /><br />", "w")
-	print("Homescreen - Please type a command.", "t")
+	print("Homescreen - Run @commands for a list of all commands.", "t")
 	print("═══════════════════════════════════", "t")
 }
 
@@ -88,5 +89,5 @@ print("<br />", "w")
 print("<br />", "w")
 print("Username and Password are both Guest if you wish to use HybridJS as a guest.</p>", "o")
 
-print("Do you need a new HybridJS account?</p>", "b")
+print("Do you need a new HybridJS account? (Y/N)</p>", "b")
 print("═══════════════════════════════════</p>", "b")
