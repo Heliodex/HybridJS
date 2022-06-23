@@ -2,63 +2,66 @@ import { writable, get } from "svelte/store"
 
 export let terminal = writable("")
 export let textinput = writable("")
+let command: string
 
-function print(text) {
-	terminal.update(n => n += text)
+function print(text, colour: string) {
+	terminal.update(n => n += `<p class="${colour}">${text}</p>`)
 }
 
 function clear() {
 	terminal.set("")
 }
 
-export function command() {
-	let command = get(textinput)
+export function commandTyped() {
+	command = get(textinput)
 	textinput.set("")
-	print(`<p class="w">${command}</p>`)
-	switch (command) {
-		case "@clear":
-			clear()
-			break
-		case "@help":
-			break
+	print(command, "w")
+
+	if (command == "hello") {
+		print("world", "r")
 	}
+
+	// switch (command) {
+	// 	case "@clear":
+	// 		clear()
+	// 		break
+	// 	case "@help":
+	// 		break
+	// }
 }
 
-print(` 
-	<br />
-	<br />
-    <p class="r">          ╔═██  ╔═██          ╔═██                ╔═██      ╔═██      ╔═██ ╔═██████</p>
-    <p class="r">          ║ ██  ║ ██          ║ ██                ╚══╝      ║ ██      ║ ██╔╝██══╗ ██</p>
-    <p class="o">          ║ ██  ║ ██╔═██  ╔═██║ ███████  ╔═██████ ╔═██ ╔═███████      ║ ██║ ██  ╚══╝</p>
-    <p class="o">          ║ ████████║ ██  ║ ██║ ██══╗ ██╔╝██══╗ ██║ ██╔╝██══╗ ██      ║ ██╚╗ ██████</p>
-    <p class="g">          ║ ██══╗ ██║ ██  ║ ██║ ██  ║ ██║ ██  ╚══╝║ ██║ ██  ║ ██      ║ ██ ╚════╗ ██</p>
-    <p class="g">          ║ ██  ║ ██║ ██  ║ ██║ ██  ║ ██║ ██      ║ ██║ ██  ║ ██╔═██  ║ ██╔═██  ║ ██</p>
- 	<p class="t">          ║ ██  ║ ██╚╗ ███████║ ███████╝║ ██      ║ ██╚╗ ███████╚╗ ██████╝╚╗ ██████╝</p>
-    <p class="b">          ╚══╝  ╚══╝ ╚════╗ ██╚═══════╝ ╚══╝      ╚══╝ ╚═══════╝ ╚══════╝  ╚══════╝</p>
-	<p class="b">                    ╔═██  ║ ██                                                     </p>
-    <p class="p">                    ╚╗ ██████╝                                                     </p>
-    <p class="p">                     ╚══════╝                                                      </p>
 
-	<p class="r">        ╔═══════════════════════════════════════════╗ </p>
-    <p class="r">       ╔╝                                           ╚╗</p>
-    <p class="o">       ║        <░▒▓ HybridJS  I N D E V ▓▒░>        ║</p>
-    <p class="o">       ║                                             ║</p>
-    <p class="g">       ║            <░▒▓ 2022 v0.0.0 ▓▒░>            ║</p>
-    <p class="g">       ║                                             ║</p>
-    <p class="t">       ║     <░▒▓ By Taskmanager & Heliodex ▓▒░>     ║</p>
-    <p class="t">       ║                                             ║</p>
-    <p class="b">       ║       A recreation of HybridOS 2.14.4.      ║</p>
-    <p class="b">       ║          Dedicated to Brent Gibson.         ║</p>
-    <p class="p">       ╚╗                                           ╔╝</p>
-    <p class="p">        ╚═══════════════════════════════════════════╝ </p>
+	print("<br /><br />", "w")
+    print("           ╔═██  ╔═██          ╔═██                ╔═██      ╔═██      ╔═██ ╔═██████ </p>", "r")
+    print("           ║ ██  ║ ██          ║ ██                ╚══╝      ║ ██      ║ ██╔╝██══╗ ██</p>", "r")
+    print("           ║ ██  ║ ██╔═██  ╔═██║ ███████  ╔═██████ ╔═██ ╔═███████      ║ ██║ ██  ╚══╝</p>", "o")
+    print("           ║ ████████║ ██  ║ ██║ ██══╗ ██╔╝██══╗ ██║ ██╔╝██══╗ ██      ║ ██╚╗ ██████ </p>", "o")
+    print("           ║ ██══╗ ██║ ██  ║ ██║ ██  ║ ██║ ██  ╚══╝║ ██║ ██  ║ ██      ║ ██ ╚════╗ ██</p>", "g")
+    print("           ║ ██  ║ ██║ ██  ║ ██║ ██  ║ ██║ ██      ║ ██║ ██  ║ ██╔═██  ║ ██╔═██  ║ ██</p>", "g")
+ 	print("           ║ ██  ║ ██╚╗ ███████║ ███████╝║ ██      ║ ██╚╗ ███████╚╗ ██████╝╚╗ ██████╝</p>", "t")
+    print("           ╚══╝  ╚══╝ ╚════╗ ██╚═══════╝ ╚══╝      ╚══╝ ╚═══════╝ ╚══════╝  ╚══════╝ </p>", "b")
+	print("                     ╔═██  ║ ██                                                      </p>", "b")
+    print("                     ╚╗ ██████╝                                                      </p>", "p")
+    print("                      ╚══════╝                                                       </p>", "p")
+
+	print("         ╔═══════════════════════════════════════════╗ </p>", "r")
+    print("        ╔╝                                           ╚╗</p>", "r")
+    print("        ║        <░▒▓ HybridJS  I N D E V ▓▒░>        ║</p>", "o")
+    print("        ║                                             ║</p>", "o")
+    print("        ║            <░▒▓ 2022 v0.0.0 ▓▒░>            ║</p>", "g")
+    print("        ║                                             ║</p>", "g")
+    print("        ║     <░▒▓ By Taskmanager & Heliodex ▓▒░>     ║</p>", "t")
+    print("        ║                                             ║</p>", "t")
+    print("        ║       A recreation of HybridOS 2.14.4.      ║</p>", "b")
+    print("        ║          Dedicated to Brent Gibson.         ║</p>", "b")
+    print("        ╚╗                                           ╔╝</p>", "p")
+    print("         ╚═══════════════════════════════════════════╝ </p>", "p")
 
 
-	<p class="g">   <░▒▓  Original HybridJS by Taskmanager & Heliodex. ▓▒░></p>
-<br />
-<br />
-<p class="o">Username and Password are both Guest if you wish to use HybridJS as a guest.</p>
+	print("    <░▒▓  Original HybridJS by Taskmanager & Heliodex. ▓▒░></p>", "g")
+print("<br />", "w")
+print("<br />", "w")
+print("Username and Password are both Guest if you wish to use HybridJS as a guest.</p>", "o")
 
-<p class="b">Do you need a new HybridJS account?</p>
-<p class="b">═══════════════════════════════════</p>
-`)
-
+print("Do you need a new HybridJS account?</p>", "b")
+print("═══════════════════════════════════</p>", "b")
