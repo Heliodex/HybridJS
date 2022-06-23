@@ -15,19 +15,26 @@ function clear() {
 export function commandTyped() {
 	command = get(textinput)
 	textinput.set("")
-	print(command, "w")
+	print(`<br /><br /><br /><br />${command}`, "w")
+	print("<br />", "w")
 
-	if (command == "hello") {
-		print("world", "r")
-	}
+	switch (command) {
+		case "@clear":
+			clear()
+			break
+		case "@help":
+			print("test", "w")
+			break
+		
+		default:
+			print("Command not recognized/implemented.", "r")
+          	print("Please check your spelling and/or case.", "o")
+          	print("Also make sure it begins with an @ sign.", "g")
+	}	
 
-	// switch (command) {
-	// 	case "@clear":
-	// 		clear()
-	// 		break
-	// 	case "@help":
-	// 		break
-	// }
+	print("<br /><br />", "w")
+	print("Homescreen - Please type a command.", "t")
+	print("═══════════════════════════════════", "t")
 }
 
 
