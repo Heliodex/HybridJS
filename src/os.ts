@@ -23,7 +23,26 @@ export function commandTyped() {
 			clear()
 			break
 		case "@commands":
-			print("test", "w")
+			print("- @clear     ║ Clears the console.", "g")
+			print("- @info      ║ Shows information about the OS and your Device.", "p")
+			print("- @credits   ║ Shows all amazing people who helped with HybridOS.", "g")
+			print("- @time      ║ Tells you the time.", "p")
+			print("- @cal       ║ Shows you a calendar of the month.", "g")
+			print("- @gameroom  ║ Opens the GameRoom app.", "p")
+			print("- @timeapp   ║ Opens the HybridTime app.", "g")
+			print("- @logout    ║ Logs out of your account.", "p")
+			print("- @readme    ║ Opens the HybridOS README file.", "g")
+			print("- @license   ║ Opens the HybridOS License file.", "p")
+			print("- @changelog ║ Opens the HybridOS Changelog file.", "g")
+			print("- @internet  ║ Shows you the data of any webpage.", "p")
+			print("- @shutdown  ║ Shuts down HybridOS.", "g")
+			break
+		
+		case "@shutdown":
+			print("Shutting down...", "r")
+			print("Shutting down..", "r")
+			print("Shutting down.", "r")
+			print("todo", "w")
 			break
 		
 		default:
