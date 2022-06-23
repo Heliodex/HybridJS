@@ -45,6 +45,11 @@ export function commandTyped() {
 			print("A recreation of HybridOS v2.14.4", "g")
 			break
 			
+		case "@credits":
+			print("- Heliodex     ║ Co-Founder of HybridOS.", "t")
+			print("- Taskmanager  ║ Co-Founder of HybridOS.", "o")
+			break
+			
 		case "@shutdown":
 			print("Shutting down...", "r")
 			print("Shutting down..", "r")
