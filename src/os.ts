@@ -19,9 +19,6 @@ export function commandTyped() {
 	print("<br />", "w")
 
 	switch (command) {
-		case "@clear":
-			clear()
-			break
 		case "@commands":
 			print("- @clear     ║ Clears the console.", "g")
 			print("- @info      ║ Shows information about the OS and your Device.", "p")
@@ -37,7 +34,17 @@ export function commandTyped() {
 			print("- @internet  ║ Shows you the data of any webpage.", "p")
 			print("- @shutdown  ║ Shuts down HybridOS.", "g")
 			break
+
+		case "@clear":
+			clear()
+			break
 		
+		case "@info":
+			print("HybridJS", "g")
+			print("Version 0.0.0", "b")
+			print("A recreation of HybridOS v2.14.4", "g")
+			break
+			
 		case "@shutdown":
 			print("Shutting down...", "r")
 			print("Shutting down..", "r")
