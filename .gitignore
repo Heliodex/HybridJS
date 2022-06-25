@@ -25,13 +25,13 @@ dist-ssr
 
 
 # Emscripten SDK
-/emsdk/bazel
-/emsdk/docker
-/emsdk/java
-/emsdk/node
-/emsdk/python
-/emsdk/scripts
-/emsdk/test
-/emsdk/upstream
-/emsdk/zips
-emsdk/
+emsdk/bazel
+emsdk/docker
+emsdk/java
+emsdk/node
+emsdk/python
+emsdk/scripts
+emsdk/test
+emsdk/upstream
+emsdk/zips
+
