@@ -5,15 +5,14 @@ export let textinput = writable("")
 let command: string
 
 function print(text, colour: string) {
-	terminal.update(n => n += `<p class="${colour}">${text}</p>`)
+	terminal.update(n => (n += `<p class="${colour}">${text}</p>`))
 }
 
 function clear() {
 	terminal.set("")
 }
 
-
-export function commandTyped() {
+export async function commandTyped() {
 	command = get(textinput)
 	textinput.set("")
 	print(`<br /><br /><br /><br />${command}`, "w")
@@ -39,36 +38,35 @@ export function commandTyped() {
 		case "@clear":
 			clear()
 			break
-		
+
 		case "@info":
 			print("HybridJS", "g")
 			print("Version 0.0.0", "b")
 			print("A recreation of HybridOS v2.14.4", "g")
 			break
-			
+
 		case "@credits":
 			print("- Heliodex     ║ Co-Founder of HybridOS.", "t")
 			print("- Taskmanager  ║ Co-Founder of HybridOS.", "o")
 			break
-			
+
 		case "@shutdown":
 			print("Shutting down...", "r")
 			print("Shutting down..", "r")
 			print("Shutting down.", "r")
 			print("todo", "w")
 			break
-		
+
 		default:
 			print("Command not recognized/implemented.", "r")
-          	print("Please check your spelling and/or case.", "o")
-          	print("Also make sure it begins with an @ sign.", "g")
-	}	
+			print("Please check your spelling and/or case.", "o")
+			print("Also make sure it begins with an @ sign.", "g")
+	}
 
 	print("<br /><br />", "w")
 	print("Homescreen - Run @commands for a list of all commands.", "t")
 	print("═══════════════════════════════════", "t")
 }
-
 
 print("<br /><br />", "w")
 print("╔═██  ╔═██          ╔═██                ╔═██      ╔═██      ╔═██ ╔═██████ ", "r")
