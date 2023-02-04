@@ -1,21 +1,36 @@
 # HybridJS
 
-## How to set up development
+Contents:
+
+- [HybridJS](#hybridjs)
+- [How to set up development](#how-to-set-up-development)
+
+# How to set up development
 
 You will need:
 
-- The latest version of NodeJS installed
-- The latest version of npm installed
-- A modern web browser installed
-- A modern operating system installed
-- A computer, as it would be painful to live life without one, wouldn't it?
+-   Latest version of NodeJS installed
+-   Latest version of npm installed
+-   A modern web browser
+-   A modern operating system
+-   A computer, as it would be painful to live life without one, wouldn't it?
 
-Steps
+Instructions:
 
-1. Clone the repository locally
-2. Navigate to the folder of the repository
-3. Open a terminal in the root folder
-4. Run `npm i` to install all dependencies, this may take a few minutes
-5. Run `npm run dev` to open a local development server at port 3000
-6. Navigate to localhost:3000 in your web browser of choice
-7. On saving a file in the `/src` directory, your changes will be shown in the browser immediately.
+-   Clone the repository locally
+-   Navigate to the folder of the repository
+-   Open a terminal in the root folder
+-   Run npm i -g pnpm to install pnpm if you don't already have it
+-   Run `pnpm i` to install all dependencies, this may take a few minutes
+
+To start a local dev server, run `npm run dev` and navigate to the link shown in the terminal. Upon saving a file, your changes will be shown in the web browser.
+
+-   If you are using WSL2, the server may not correctly reflect the changes you make. To fix this, add the following to the default export of vite.config.ts:
+
+```ts
+server: {
+	watch: {
+		usePolling: true,
+	},
+},
+```
